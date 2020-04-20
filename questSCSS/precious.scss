@@ -1,0 +1,165 @@
+@font-face {
+  font-family: 'Aniron';
+  src: url(../fonts/aniron-font/Aniron-7BaP.ttf);
+}
+
+@font-face {
+  font-family: 'Aniron';
+  src: url(../fonts/aniron-font/AnironcBold-PKwr.ttf);
+  font-weight: bold;
+}
+
+// Variables
+$textfont: 'Aniron';
+$orange: #fe661d;
+$black: #1a1a1a;
+$white: #ffffff;
+$ringyellow: #ffd100;
+$navbartext: 16px;
+$maintext: 30px;
+$foottext: 12px;
+$breakpoint-mobile: 575px;
+$breakpoint-tablet: 768px;
+$whitebackimg: url('../images/bg_light.png');
+
+@mixin rings($color, $size) {
+  $border: round($size / 20);
+  margin: 0px 20px;
+  border-radius: 50%;
+  width: $size;
+  height: $size;
+  border: $border solid $color;
+  box-shadow: 5px 3px 2px 1px darken($color, 8),
+    inset 5px 3px 2px 1px darken($color, 8);
+}
+
+* {
+  margin: 0;
+  font-family: $textfont;
+}
+
+// NavBar
+nav {
+  background-color: $orange;
+  .logo {
+    width: 90%;
+  }
+  a {
+    color: $white !important;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  ul {
+    margin-left: 40px;
+    font-size: $navbartext;
+  }
+  li {
+    padding: 0px 10px;
+    line-height: 12px;
+  }
+  .nav-section {
+    justify-content: flex-end;
+    a {
+      border-bottom: 2px solid $orange;
+      &:hover {
+        text-decoration: none;
+        border-bottom: 2px solid $white;
+      }
+    }
+  }
+  .nav-item-two {
+    border-left: solid 1px $white;
+  }
+}
+
+// NavBar
+.main {
+  background-image: $whitebackimg;
+  font-size: $maintext;
+  padding: 40px 0px;
+  display: flex;
+  flex-direction: column;
+  .ring-section {
+    display: flex;
+    margin: 20px 0px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+  }
+  .column {
+    flex-direction: column;
+  }
+  .ring-one {
+    @include rings($orange, 50px);
+  }
+  .ring-two {
+    @include rings($ringyellow, 170px);
+  }
+  .ring-three {
+    width: 100%;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    $ringloop: 0.33;
+    @for $i from 1 through 6 {
+      .ring-#{$i} {
+        $size: 40px + ($i * 15);
+        @include rings($black, $size);
+        position: absolute;
+        left: percentage($ringloop + (($i * 3)/100));
+      }
+    }
+  }
+}
+
+// Footer
+footer {
+  background-color: $orange;
+  font-size: $foottext;
+  padding: 20px 10px;
+
+  .foot-text,
+  .foot-site {
+    color: $white;
+    padding: 5px;
+  }
+  .foot-logo {
+    width: 50%;
+    margin-top: 10px;
+  }
+  .site {
+    line-height: 12px;
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  footer {
+    text-align: center;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  nav {
+    .nav-item,
+    .nav-item-two {
+      border: solid 1px #fe661d;
+      width: 150px;
+      line-height: 26px;
+    }
+  }
+
+  .main {
+    .ring-three {
+      $ringloop: 0.2;
+      @for $i from 1 through 6 {
+        .ring-#{$i} {
+          $size: 40px + ($i * 15);
+          @include rings($black, $size);
+          position: absolute;
+          left: percentage($ringloop + (($i * 3)/100));
+        }
+      }
+    }
+  }
+}
