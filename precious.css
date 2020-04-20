@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'Aniron';
-  src: url(../fonts/aniron-font/Aniron-7BaP.ttf);
+  src: url(./fonts/aniron-font/Aniron-7BaP.ttf);
 }
 @font-face {
   font-family: 'Aniron';
-  src: url(../fonts/aniron-font/AnironcBold-PKwr.ttf);
+  src: url(./fonts/aniron-font/AnironcBold-PKwr.ttf);
   font-weight: bold;
 }
 * {
@@ -50,7 +50,7 @@ nav .nav-item-two {
 }
 
 .main {
-  background-image: url('../images/bg_light.png');
+  background-image: url('./images/bg_light.png');
   font-size: 30px;
   padding: 40px 0px;
   display: -webkit-box;

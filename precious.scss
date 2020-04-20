@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'Aniron';
-  src: url(../fonts/aniron-font/Aniron-7BaP.ttf);
+  src: url(./fonts/aniron-font/Aniron-7BaP.ttf);
 }
 
 @font-face {
   font-family: 'Aniron';
-  src: url(../fonts/aniron-font/AnironcBold-PKwr.ttf);
+  src: url(./fonts/aniron-font/AnironcBold-PKwr.ttf);
   font-weight: bold;
 }
 
@@ -20,7 +20,9 @@ $maintext: 30px;
 $foottext: 12px;
 $breakpoint-mobile: 575px;
 $breakpoint-tablet: 768px;
-$whitebackimg: url('../images/bg_light.png');
+@import 'bourbon/bourbon';
+
+$whitebackimg: url('./images/bg_light.png');
 
 @mixin rings($color, $size) {
   $border: round($size / 20);
